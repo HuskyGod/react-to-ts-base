@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
-import { ConfigProvider } from 'antd';
+import { BaseForm } from './component/from';
 
 ReactDOM.render(
   <div>
-    111
+    <BaseForm fromType="form_1" />
   </div>
 ,
 document.getElementById('tomato-work') as HTMLDivElement);

@@ -1,0 +1,85 @@
+{
+  "form_1": [
+    {
+      "name": {
+        "label": "姓名",
+        "defaultValue": "",
+        "Icon": "",
+        "rules": [],
+        "placeholder": "请输入姓名",
+        "type": "input",
+        "props": {
+          "labelStyle": {},
+          "FormStyle": {},
+          "className": {},
+          "labelClassName": "",
+          "FormCol": 10
+        }
+      },
+      "city": {
+        "type": "select",
+        "label": "城市",
+        "defaultValue": 0,
+        "Icon": "",
+        "rules": [],
+        "placeholder": "",
+        "option": [
+          {
+            "text": "城市1",
+            "value": 1
+          },
+          {
+            "text": "城市2",
+            "value": 2
+          },
+          {
+            "text": "城市3",
+            "value": 3
+          }
+        ],
+        "props": {
+          "labelStyle": {},
+          "FormStyle": {},
+          "className": {},
+          "labelClassName": "",
+          "FormCol": {
+            "labelCol": {
+              "xs": { "span": 24 },
+              "sm": { "span": 8 }
+            },
+            "wrapperCol": {
+              "xs": { "span": 24 },
+              "sm": { "span": 16 }
+            }
+          }
+        }
+      },
+      "sex": {
+        "label": "性别",
+        "defaultValue": "",
+        "rules": [],
+        "type": "radio",
+        "props": {
+          "labelStyle": {},
+          "FormStyle": {},
+          "className": {},
+          "labelClassName": "",
+          "FormCol": 10
+        }
+      },
+      "time": {
+        "label": "日期",
+        "defaultValue": "",
+        "rules": [],
+        "type": "date",
+        "props": {
+          "labelStyle": {},
+          "FormStyle": {},
+          "className": {},
+          "labelClassName": "",
+          "FormCol": 10
+        }
+      }
+    }
+  ]
+}

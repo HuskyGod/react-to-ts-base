@@ -62,3 +62,8 @@ declare module '*.module.sass' {
   const classes: { [key: string]: string}
   export default classes
 }
+
+declare module "*.json" {
+  const value: { [key: string]: any};
+  export default value;
+}
