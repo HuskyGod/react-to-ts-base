@@ -16,7 +16,7 @@ const BaseForm: React.FC<Props> = function ({
 
   const FormComponent = Form.create({
     onValuesChange: onChange
-  })(() => <FormComponentFn data={FormJson[fromType]} />)
+  })((props) => <FormComponentFn {...props} data={FormJson[fromType]} />)
 
   return (
     <div>
