@@ -1,6 +1,26 @@
 import * as React from 'react';
-import { Form, Input, Select, DatePicker, Radio } from 'antd';
-import { FormProps } from 'antd/lib/form/Form'
+import { Form, Input, Col, Row, DatePicker } from 'antd';
+import { FormComponentProps } from 'antd/lib/form/Form'
+
+import Select from './Select'
+import Radio from './Radio'
+
+const initProps = {
+  "labelCol": {
+    "xs": { "span": 24 },
+    "sm": { "span": 24 },
+    "md": { "span": 8 },
+    "lg": { "span": 4 },
+    "xl": { "span": 4},
+  },
+  "wrapperCol": {
+    "xs": { "span": 24 },
+    "sm": { "span": 24 },
+    "md": { "span": 16 },
+    "lg": { "span": 20 },
+    "xl": { "span": 20 }
+  }
+}
 
 export type ItemProps = {
   labelStyle?: {},
@@ -17,47 +37,57 @@ export type FormJsonProps =  {
   rules?: Array<object>,
   placeholder?: string,
   type: string
-  props?: ItemProps
+  props?: ItemProps,
+  option: Array<any>
 }
 
 export type Prop = {
-  data: Array<{ [key: string]: FormJsonProps }>
+  data: {
+    form: Array<{ [key: string]: FormJsonProps }>,
+    props ?: any
+  }
 }
 
-class FormComponent extends React.Component<Prop & FormProps> {
+class FormComponent extends React.Component<Prop & FormComponentProps> {
   public renderChildren (item: FormJsonProps, key: string): React.ReactNode {
-    // const { form: {getFieldDecorator} } = this.props
-    console.log(key)
+    const { form: {getFieldDecorator} } = this.props
     return (
       <Form.Item label={item.label}>
-        {/* {getFieldDecorator (key, {}) (
-          this.getFormComponent(item.type)
-        )} */}
+        {getFieldDecorator (key, {
+          rules: item.rules || []
+        }) (
+          this.getFormComponent(item)
+        )}
       </Form.Item>
     )
   }
-  getFormComponent (type: string) {
-    const keyComponent = {
+  getFormComponent (item: FormJsonProps) {
+    const KeyComponent = {
       'input': Input,
-      'select': Select,
+      'select': React.forwardRef((props, ref) => <Select ref={ref} {...props} option={item.option}  />),
       'date': DatePicker,
-      'radio': Radio
-    }
-    return keyComponent[type]
+      'radio': React.forwardRef((props, ref) => <Radio ref={ref} {...props} option={item.option}  />)
+    }[item.type]
+    return <KeyComponent placeholder={item.placeholder} style={{width: '100%'}} />
   }
   public render() {
     const {data} = this.props
+    const defaultProps = Object.assign({}, initProps, data.props)
     return (
       <div>
-        <Form>
+        <Form {...defaultProps}>
           {
-            data.map((item) => {
-              return Object.keys(item).map((key) => (
-                <div key={key}>
-                  {this.renderChildren(item[key], key)}
-                </div>
-              ))
-            })
+            data.form.map((item, index) => (
+              <Row gutter={16} key={index}>
+                {
+                  Object.keys(item).map((key) => (
+                    <Col span={24 / Object.keys(item).length} key={key}>
+                      {this.renderChildren(item[key], key)}
+                    </Col>
+                  ))
+                }
+              </Row>
+            ))
           }
         </Form>
       </div>

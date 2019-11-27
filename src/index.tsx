@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import { BaseForm } from './component/from';
+// import { BaseForm } from './component/from';
+import Routes from './router';
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <div>
-    <BaseForm fromType="form_1" />
+    <Routes />
+    {/* <BaseForm fromType="form_1" /> */}
   </div>
 ,
 document.getElementById('tomato-work') as HTMLDivElement);

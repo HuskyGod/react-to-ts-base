@@ -1,28 +1,21 @@
 {
-  "form_1": [
-    {
+  "form_1": {
+    "form": [{
       "name": {
         "label": "姓名",
-        "defaultValue": "",
-        "Icon": "",
+        "default": "",
         "rules": [],
         "placeholder": "请输入姓名",
         "type": "input",
-        "props": {
-          "labelStyle": {},
-          "FormStyle": {},
-          "className": {},
-          "labelClassName": "",
-          "FormCol": 10
-        }
+        "props": {},
+        "FormProp": {}
       },
       "city": {
         "type": "select",
         "label": "城市",
-        "defaultValue": 0,
-        "Icon": "",
+        "default": 0,
         "rules": [],
-        "placeholder": "",
+        "placeholder": "请选择城市",
         "option": [
           {
             "text": "城市1",
@@ -37,49 +30,35 @@
             "value": 3
           }
         ],
-        "props": {
-          "labelStyle": {},
-          "FormStyle": {},
-          "className": {},
-          "labelClassName": "",
-          "FormCol": {
-            "labelCol": {
-              "xs": { "span": 24 },
-              "sm": { "span": 8 }
-            },
-            "wrapperCol": {
-              "xs": { "span": 24 },
-              "sm": { "span": 16 }
-            }
-          }
-        }
+        "props": {},
+        "FormProp": {}
       },
       "sex": {
         "label": "性别",
-        "defaultValue": "",
+        "default": "",
         "rules": [],
         "type": "radio",
-        "props": {
-          "labelStyle": {},
-          "FormStyle": {},
-          "className": {},
-          "labelClassName": "",
-          "FormCol": 10
-        }
+        "props": {},
+        "FormProp": {},
+        "option": [
+          {
+            "text": "男",
+            "value": 1
+          },
+          {
+            "text": "女",
+            "value": 2
+          }
+        ]
       },
       "time": {
         "label": "日期",
-        "defaultValue": "",
+        "default": "",
         "rules": [],
         "type": "date",
-        "props": {
-          "labelStyle": {},
-          "FormStyle": {},
-          "className": {},
-          "labelClassName": "",
-          "FormCol": 10
-        }
+        "props": {},
+        "FormProp": {}
       }
-    }
-  ]
+    }]
+  }
 }
