@@ -1,5 +1,6 @@
 const CONFIG = {
-  baseURL: '/'
+  baseURL: '/',
+  title: '你猜猜'
 }
 
 export default CONFIG

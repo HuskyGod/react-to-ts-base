@@ -1,0 +1,14 @@
+
+.warpBox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  .LoadingContent, .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .background {
+    
+  }
+}
